@@ -22,15 +22,22 @@ Este proyecto está pensado para trabajar junto a un frontend (por ejemplo React
 
 server/
 ├── src/
-│   ├── config/        # Configuración (DB, CORS, etc.)
-│   ├── models/        # Modelos Sequelize
-│   ├── routes/        # Rutas de la API
-│   ├── controllers/   # Lógica de negocio
-│   ├── server.ts      # Configuración del servidor
-│   └── index.ts       # Punto de entrada
+│   ├── config/
+│   │   ├── db.ts
+│   │   └── cors.ts
+│   ├── models/
+│   │   └── Product.ts
+│   ├── controllers/
+│   │   └── product.controller.ts
+│   ├── routes/
+│   │   └── product.routes.ts
+│   ├── server.ts
+│   └── index.ts
 ├── .env
+├── .gitignore
 ├── package.json
 └── tsconfig.json
+
 
 ---
 
