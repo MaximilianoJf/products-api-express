@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "lib": ["ESNext"],
+        "target": "esnext",
+        "moduleResolution": "nodenext", 
+        "module": "nodenext",
+        "strict": false,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "experimentalDecorators": true,   // necesario
+        "emitDecoratorMetadata": true,    // necesario para sequelize-typescript y crearmodelos
+    },
+    "include": ["src/**/*.ts"]
+}
+
+//Sin esas opciones (target: esnext, module: nodenext, moduleResolution: nodenext)
+// TypeScript probablemente compilaba con commonjs.
+// Eso hacía que tus import ... from y tus export no se entendieran bien en tiempo de ejecución.
+// Al usar librerías como Express o Sequelize (que hoy mezclan ESM y CommonJS), pasaba que:
+// No encontraba módulos (Cannot find module o Unexpected token 'export').
+// O cargaba mal algunas dependencias, dejando controladores/handlers sin ejecutar.
+// Eso se traducía en que tus rutas POST nunca se procesaban correctamente, aunque la conexión a la base estaba bien.
